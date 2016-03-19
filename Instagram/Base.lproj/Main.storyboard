@@ -87,8 +87,71 @@
                     <view key="view" contentMode="scaleToFill" id="Hk8-FV-CXJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="メールアドレス" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2kR-Vt-6ze">
+                                <rect key="frame" x="151" y="100" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="NNn-36-tUI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="パスワード" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAP-uF-2wO">
+                                <rect key="frame" x="151" y="140" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Da2-cM-1xf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="アカウント作成時は表示名を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPN-09-ogm">
+                                <rect key="frame" x="151" y="180" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Cb5-VB-aks"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDt-ro-Pp9">
+                                <rect key="frame" x="150" y="220" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="fi3-p6-hHW"/>
+                                </constraints>
+                                <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="MjW-RO-LjS" eventType="touchUpInside" id="36I-80-dvP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3F-tw-tqW">
+                                <rect key="frame" x="150" y="260" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="V1Y-hg-qgm"/>
+                                </constraints>
+                                <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAcountButton:" destination="MjW-RO-LjS" eventType="touchUpInside" id="Wpq-jf-K7N"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TAP-uF-2wO" firstAttribute="centerX" secondItem="Hk8-FV-CXJ" secondAttribute="centerX" id="8Eb-mf-kQA"/>
+                            <constraint firstItem="TDt-ro-Pp9" firstAttribute="centerX" secondItem="Hk8-FV-CXJ" secondAttribute="centerX" id="E8l-BW-9zS"/>
+                            <constraint firstItem="TAP-uF-2wO" firstAttribute="top" secondItem="2kR-Vt-6ze" secondAttribute="bottom" constant="10" id="F3n-1T-2yc"/>
+                            <constraint firstItem="2kR-Vt-6ze" firstAttribute="centerX" secondItem="Hk8-FV-CXJ" secondAttribute="centerX" id="Jhi-Ih-QFV"/>
+                            <constraint firstItem="wPN-09-ogm" firstAttribute="top" secondItem="TAP-uF-2wO" secondAttribute="bottom" constant="10" id="KdA-Fb-dvG"/>
+                            <constraint firstItem="wPN-09-ogm" firstAttribute="centerX" secondItem="Hk8-FV-CXJ" secondAttribute="centerX" id="P1s-8i-qur"/>
+                            <constraint firstItem="TDt-ro-Pp9" firstAttribute="top" secondItem="wPN-09-ogm" secondAttribute="bottom" constant="10" id="SVO-QC-xVq"/>
+                            <constraint firstItem="q3F-tw-tqW" firstAttribute="top" secondItem="TDt-ro-Pp9" secondAttribute="bottom" constant="10" id="aYT-K1-9k3"/>
+                            <constraint firstItem="2kR-Vt-6ze" firstAttribute="top" secondItem="L05-9w-jK1" secondAttribute="bottom" constant="80" id="c7e-2a-sM5"/>
+                            <constraint firstItem="q3F-tw-tqW" firstAttribute="centerX" secondItem="Hk8-FV-CXJ" secondAttribute="centerX" id="h3b-oA-3kf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="wPN-09-ogm" id="NjE-NI-Gfa"/>
+                        <outlet property="mailAddressTextField" destination="2kR-Vt-6ze" id="Sl5-V8-S5x"/>
+                        <outlet property="passwordTextField" destination="TAP-uF-2wO" id="1rD-kv-RtU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHr-Jj-kN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -113,4 +176,7 @@
             <point key="canvasLocation" x="1596" y="334"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn" width="300" height="40"/>
+    </resources>
 </document>
