@@ -1,0 +1,13 @@
+PODS:
+  - ESTabBarController (0.1.2)
+  - Firebase (2.5.1)
+
+DEPENDENCIES:
+  - ESTabBarController
+  - Firebase
+
+SPEC CHECKSUMS:
+  ESTabBarController: ef57e22d9835c7142d3681d38ac158006c40465f
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+
+COCOAPODS: 0.39.0
