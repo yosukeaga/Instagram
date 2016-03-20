@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -22,15 +23,16 @@ class LoginViewController: UIViewController {
         if let address = mailAddressTextField.text, let password = passwordTextField.text{
            
             if address.characters.isEmpty || password.characters.isEmpty {
+                SVProgressHUD.showErrorWithStatus("必須項目を記入して下さい")
                 return
             }
             
             firebaseRef.authUser(address, password: password, withCompletionBlock: { error, authData in
                 if error != nil {
-                    
+                     SVProgressHUD.showErrorWithStatus("エラー")
                 } else {
                     
-                    // Firebaseからログインしたユーザの表示名を取得してNSUserDefaultsに保存する
+                     // Firebaseからログインしたユーザの表示名を取得してNSUserDefaultsに保存する
                     let usersRef = self.firebaseRef.childByAppendingPath(CommonConst.UsersPATH)
                     let uidRef = usersRef.childByAppendingPath(authData.uid)
                     uidRef.observeSingleEventOfType(FEventType.Value, withBlock: { snapshot in
@@ -39,7 +41,7 @@ class LoginViewController: UIViewController {
                             self.setDisplayName(displayName)
                         }
                         
-                        // 画面を閉じる
+                         // 画面を閉じる
                         self.dismissViewControllerAnimated(true, completion: nil)})
                 }
             })
@@ -50,35 +52,36 @@ class LoginViewController: UIViewController {
         
         if let address = mailAddressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
             if address.characters.isEmpty || password.characters.isEmpty || displayName.characters.isEmpty{
+                SVProgressHUD.showErrorWithStatus("必須項目を入力して下さい")
                 return
             }
             
             firebaseRef.createUser(address, password: password, withValueCompletionBlock: { error, result in
+                 //errorがnilでない時がエラー、nilの時がアカウント作成成功
                 if error != nil {
-                    
+                    SVProgressHUD.showErrorWithStatus("エラー")
                 } else {
-                    // ユーザーを作成できたらそのままログインする
+                     // ユーザーを作成できたらそのままログインする
                     self.firebaseRef.authUser(address, password: password, withCompletionBlock:  { error, authData in
                         if error != nil {
                             
                         } else {
-                            // Firebaseに表示名を保存する
+                             // Firebaseに表示名を保存する
                             let usersRef = self.firebaseRef.childByAppendingPath(CommonConst.UsersPATH)
+                             //キーがname,値がdisplayname
                             let data = ["name": displayName]
+                             //usersRefにauthData.uid（認証後ユーザを一意に区別する為のID）を連結し,１つ下の階層のURLを作り、その階層にsetValueを用いdata保存
                             usersRef.childByAppendingPath("/\(authData.uid)").setValue(data)
                             
-                            // NSUserDefaultsに表示名を保存する
+                             // NSUserDefaultsに表示名を保存する
                             self.setDisplayName(displayName)
                             
-                            // 画面を閉じる
+                             // 画面を閉じる
                             self.dismissViewControllerAnimated(true, completion: nil)
                         }
                     })
                 }
             })
-        
-        
-        
         }
     }
     
@@ -94,7 +97,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
         
     }
-    
+     //name = displayName ←displayName= displayNameText
     func setDisplayName(name: String){
         
         let ud = NSUserDefaults.standardUserDefaults()
@@ -102,15 +105,6 @@ class LoginViewController: UIViewController {
         ud.synchronize()
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     /*
