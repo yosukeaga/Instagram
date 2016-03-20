@@ -27,6 +27,9 @@ class LoginViewController: UIViewController {
                 return
             }
             
+            //ログイン終了するまでの処理。HUDを開始
+            SVProgressHUD.show()
+            
             firebaseRef.authUser(address, password: password, withCompletionBlock: { error, authData in
                 if error != nil {
                      SVProgressHUD.showErrorWithStatus("エラー")
@@ -41,6 +44,8 @@ class LoginViewController: UIViewController {
                             self.setDisplayName(displayName)
                         }
                         
+                        //HUUを消す
+                        SVProgressHUD.dismiss()
                          // 画面を閉じる
                         self.dismissViewControllerAnimated(true, completion: nil)})
                 }
@@ -51,10 +56,14 @@ class LoginViewController: UIViewController {
     @IBAction func handleCreateAcountButton(sender: AnyObject) {
         
         if let address = mailAddressTextField.text, let password = passwordTextField.text, let displayName = displayNameTextField.text {
+            
             if address.characters.isEmpty || password.characters.isEmpty || displayName.characters.isEmpty{
                 SVProgressHUD.showErrorWithStatus("必須項目を入力して下さい")
                 return
             }
+            
+             //アカウント作成が終了するまでの処理　 HUD開始
+            SVProgressHUD.show()
             
             firebaseRef.createUser(address, password: password, withValueCompletionBlock: { error, result in
                  //errorがnilでない時がエラー、nilの時がアカウント作成成功
@@ -76,13 +85,16 @@ class LoginViewController: UIViewController {
                              // NSUserDefaultsに表示名を保存する
                             self.setDisplayName(displayName)
                             
+                             //HUD終了
+                            SVProgressHUD.dismiss()
+                            
                              // 画面を閉じる
                             self.dismissViewControllerAnimated(true, completion: nil)
                         }
                     })
                 }
             })
-        }
+         }
     }
     
     override func viewDidLoad() {

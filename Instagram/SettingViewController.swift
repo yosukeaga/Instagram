@@ -7,13 +7,69 @@
 //
 
 import UIKit
+import Firebase
+import ESTabBarController
+import SVProgressHUD
 
 class SettingViewController: UIViewController {
 
+    @IBOutlet weak var displayNameTextField: UITextField!
+    
+    @IBAction func handleChangeButton(sender: AnyObject) {
+        
+        if let name = displayNameTextField.text{
+        
+            if name.characters.isEmpty{
+            
+                SVProgressHUD.showErrorWithStatus("表示名を入力して下さい")
+                return
+                
+            }else{
+            
+                let userRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.UsersPATH)
+                let data = ["name": name]
+                userRef.childByAppendingPath("/\(userRef.authData.uid)").setValue(data)
+                
+                let ud = NSUserDefaults.standardUserDefaults()
+                ud.setValue(name, forKey: CommonConst.DisplayNameKey)
+                ud.synchronize()
+                
+                SVProgressHUD.showErrorWithStatus("表示名を変更しました")
+                
+                view.endEditing(true)
+            
+            }
+        
+        
+        }
+    }
+    
+    @IBAction func handleLogoutButton(sender: AnyObject) {
+        
+        let firebaseRef = Firebase(url: CommonConst.FirebaseURL)
+        firebaseRef.unauth()
+        
+        let loginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Login")
+        self.presentViewController(loginViewController!, animated: true, completion: nil)
+        
+        let tabBarController = parentViewController as! ESTabBarController
+        tabBarController.setSelectedIndex(0, animated: false)
+        
+        
+        
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        let ud = NSUserDefaults.standardUserDefaults()
+        let name = ud.objectForKey(CommonConst.DisplayNameKey)as! String
+        displayNameTextField.text = name
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

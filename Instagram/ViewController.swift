@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         
         
         let firebaseRef = Firebase(url: CommonConst.FirebaseURL)
+        
         let authData = firebaseRef.authData
         
         if authData == nil {
