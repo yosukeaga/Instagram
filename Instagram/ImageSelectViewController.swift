@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AdobeUXImageEditorViewControllerDelegate {
 
     
     
@@ -56,6 +56,18 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func photoEditor(editor: AdobeUXimageEditorViewController, finishdWithImage image: UIImage?){
+        editor.dismissViewControllerAnimated(true, completion: nil)
+        
+        let postViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Post") as! PostViewController
+        postViewController.image = image
+        presentViewController(postViewController, animated: true, completion: nil)
+    }
+    
+    func photoEditorCanceled(editor: AdobeUXImageEditorViewController){
+        editor.dismissViewControllerAnimated(true, completion: nil)
     }
         
     
