@@ -11,6 +11,16 @@ import UIKit
 class PostViewController: UIViewController {
 
     var image: UIImage!
+
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var textField: UITextField!
+    
+    
+    @IBAction func handlePostButton(sender: UIButton) {
+    }
+    
+    @IBAction func handleCancelButton(sender: AnyObject) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

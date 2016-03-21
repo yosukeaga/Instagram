@@ -37,6 +37,7 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     
     @IBAction func handleCancelButton(sender: UIButton) {
         
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
     
