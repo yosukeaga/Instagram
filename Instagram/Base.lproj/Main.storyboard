@@ -94,22 +94,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hG-v0-17h">
-                                <rect key="frame" x="20" y="40" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="3no-QR-74e"/>
-                                    <constraint firstAttribute="width" constant="240" id="OLQ-Uu-gfg"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="V36-7F-UBI"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="wYs-8l-7Ur"/>
-                                </constraints>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8R-vR-fcc">
-                                <rect key="frame" x="270" y="138" width="290" height="30"/>
+                                <rect key="frame" x="150" y="130" width="410" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-vH-8bU">
-                                <rect key="frame" x="150" y="188" width="300" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8hG-v0-17h">
+                                <rect key="frame" x="20" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Iqu-BW-dhL"/>
+                                    <constraint firstAttribute="width" constant="120" id="KrN-kl-shO"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJc-vH-8bU">
+                                <rect key="frame" x="150" y="180" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="WQS-1S-TV7"/>
                                 </constraints>
@@ -118,8 +116,8 @@
                                     <action selector="handlePostButton:" destination="8Rd-UJ-Ngn" eventType="touchUpInside" id="wfa-E3-Dyv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGQ-zw-dl3">
-                                <rect key="frame" x="150" y="228" width="300" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGQ-zw-dl3">
+                                <rect key="frame" x="150" y="230" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="p2G-aX-dGg"/>
                                 </constraints>
@@ -131,15 +129,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mGQ-zw-dl3" firstAttribute="centerX" secondItem="83B-zI-EWg" secondAttribute="centerX" id="5bY-tD-GgP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="S8R-vR-fcc" secondAttribute="trailing" constant="20" id="5wS-ka-7mT"/>
-                            <constraint firstItem="S8R-vR-fcc" firstAttribute="leading" secondItem="8hG-v0-17h" secondAttribute="trailing" constant="10" id="Fd7-KV-Ynf"/>
-                            <constraint firstItem="8hG-v0-17h" firstAttribute="leading" secondItem="83B-zI-EWg" secondAttribute="leadingMargin" id="RRf-js-ocD"/>
-                            <constraint firstItem="8hG-v0-17h" firstAttribute="top" secondItem="eHi-Bg-upX" secondAttribute="bottom" constant="20" id="Xts-d7-S5M"/>
-                            <constraint firstItem="mGQ-zw-dl3" firstAttribute="top" secondItem="LJc-vH-8bU" secondAttribute="bottom" constant="10" id="hPL-WQ-D44"/>
-                            <constraint firstItem="LJc-vH-8bU" firstAttribute="top" secondItem="S8R-vR-fcc" secondAttribute="bottom" constant="20" id="jxy-I5-dai"/>
-                            <constraint firstItem="S8R-vR-fcc" firstAttribute="bottom" secondItem="8hG-v0-17h" secondAttribute="bottom" id="o3B-qi-YH2"/>
-                            <constraint firstItem="LJc-vH-8bU" firstAttribute="centerX" secondItem="83B-zI-EWg" secondAttribute="centerX" id="tgY-kN-woK"/>
+                            <constraint firstItem="8hG-v0-17h" firstAttribute="top" secondItem="eHi-Bg-upX" secondAttribute="bottom" constant="20" id="9pd-b7-MBX"/>
+                            <constraint firstItem="S8R-vR-fcc" firstAttribute="bottom" secondItem="8hG-v0-17h" secondAttribute="bottom" id="EWe-2q-tQn"/>
+                            <constraint firstItem="LJc-vH-8bU" firstAttribute="centerX" secondItem="83B-zI-EWg" secondAttribute="centerX" id="JCK-7j-qoU"/>
+                            <constraint firstItem="LJc-vH-8bU" firstAttribute="top" secondItem="S8R-vR-fcc" secondAttribute="bottom" constant="20" id="Pud-ZB-k1k"/>
+                            <constraint firstItem="S8R-vR-fcc" firstAttribute="leading" secondItem="8hG-v0-17h" secondAttribute="trailing" constant="10" id="RD5-nI-kcg"/>
+                            <constraint firstItem="mGQ-zw-dl3" firstAttribute="centerX" secondItem="83B-zI-EWg" secondAttribute="centerX" id="Rqg-8T-mcB"/>
+                            <constraint firstItem="mGQ-zw-dl3" firstAttribute="top" secondItem="LJc-vH-8bU" secondAttribute="bottom" constant="10" id="du5-qr-b39"/>
+                            <constraint firstItem="8hG-v0-17h" firstAttribute="leading" secondItem="83B-zI-EWg" secondAttribute="leadingMargin" id="otc-f7-jKW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S8R-vR-fcc" secondAttribute="trailing" constant="20" id="y6t-kh-830"/>
                         </constraints>
                     </view>
                     <connections>
