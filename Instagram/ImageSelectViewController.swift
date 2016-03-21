@@ -41,16 +41,22 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
         if info[UIImagePickerControllerOriginalImage] != nil {
-          let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-          
-            dispatch_async(dispatch_get_main_queue()){
+            // 撮影/選択された画像を取得する
+            let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
+            // ここでpresentViewControllerを呼び出しても表示されないためメソッドが終了してから呼ばれるようにする
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                // AdobeImageEditorを起動する
                 let adobeViewController = AdobeUXImageEditorViewController(image: image)
                 adobeViewController.delegate = self
                 self.presentViewController(adobeViewController, animated: true, completion:  nil)
             }
         }
+        
+        // 閉じる
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -58,13 +64,15 @@ class ImageSelectViewController: UIViewController,UIImagePickerControllerDelegat
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func photoEditor(editor: AdobeUXimageEditorViewController, finishdWithImage image: UIImage?){
+    func photoEditor(editor: AdobeUXImageEditorViewController, finishedWithImage image: UIImage?) {
+        
         editor.dismissViewControllerAnimated(true, completion: nil)
         
         let postViewController = self.storyboard?.instantiateViewControllerWithIdentifier("Post") as! PostViewController
         postViewController.image = image
         presentViewController(postViewController, animated: true, completion: nil)
     }
+    
     
     func photoEditorCanceled(editor: AdobeUXImageEditorViewController){
         editor.dismissViewControllerAnimated(true, completion: nil)

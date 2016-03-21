@@ -57,7 +57,7 @@
 		F46C89E21C9FB79B009A8FFA /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		F46C89E41C9FB7AD009A8FFA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F46C89E61C9FB7B5009A8FFA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		F46C89E81C9FBDD4009A8FFA /* Instagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram-Bridging-Header.h"; sourceTree = "<group>"; };
+		F46C89E81C9FBDD4009A8FFA /* Instagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instagram-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		F479E4AB1C9AFD750024A394 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		F48041E01C983B4600E17E46 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48041E31C983B4600E17E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 		F48041D71C983B4600E17E46 = {
 			isa = PBXGroup;
 			children = (
-				F46C89E81C9FBDD4009A8FFA /* Instagram-Bridging-Header.h */,
 				F48041E21C983B4600E17E46 /* Instagram */,
 				F48041E11C983B4600E17E46 /* Products */,
 				F757E54D696B674F18A06F5A /* Pods */,
@@ -141,6 +140,7 @@
 		F48041E21C983B4600E17E46 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				F46C89E81C9FBDD4009A8FFA /* Instagram-Bridging-Header.h */,
 				F46C89C91C9FB580009A8FFA /* AdobeCreativeSDKImage.framework */,
 				F46C89CE1C9FB5E5009A8FFA /* AdobeCreativeSDKImageResources.bundle */,
 				F46C89C81C9FB580009A8FFA /* AdobeCreativeSDKCore.framework */,
@@ -434,7 +434,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.yosuke.aga.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -464,7 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.yosuke.aga.Instagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Instagram/Instagram-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Instagram-Bridging-Header.h";
 			};
 			name = Release;
 		};
