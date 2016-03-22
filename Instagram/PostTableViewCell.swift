@@ -31,4 +31,38 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func layoutSubviews() {
+        
+         //postData!等の！の意味が分からない
+        postImageView.image = postData!.image
+        captionLabel.text = "\(postData!.name!):\(postData!.caption!)"
+        
+        let likeNumber = postData!.likes.count
+        likeLabel.text = "\(likeNumber)"
+        
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        let dateString: String = formatter.stringFromDate(postData!.date!)
+        dateLabel.text = dateString
+        
+        if postData!.isLiked{
+        
+            let buttonImage = UIImage(named: "like_exist")
+            likeButton.setImage(buttonImage, forState: UIControlState.Normal)
+        }else{
+            let buttonImage = UIImage(named: "like_none")
+            likeButton.setImage(buttonImage, forState: UIControlState.Normal)
+        }
+        
+        
+        super.layoutSubviews()
+    }
+    
+    
+    
+    
+    
+    
 }
