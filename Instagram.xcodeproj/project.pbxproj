@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E20D1958FEF5665C6006541 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46189CA8DD6CB10908020ED8 /* Pods_Instagram.framework */; };
+		F44E92411CA4204300FD1511 /* PostCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E92401CA4204300FD1511 /* PostCommentViewController.swift */; };
 		F46C89CA1C9FB580009A8FFA /* AdobeCreativeSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46C89C81C9FB580009A8FFA /* AdobeCreativeSDKCore.framework */; };
 		F46C89CB1C9FB580009A8FFA /* AdobeCreativeSDKImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46C89C91C9FB580009A8FFA /* AdobeCreativeSDKImage.framework */; };
 		F46C89CD1C9FB5BA009A8FFA /* AdobeCreativeSDKCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F46C89CC1C9FB5BA009A8FFA /* AdobeCreativeSDKCoreResources.bundle */; };
@@ -44,6 +45,7 @@
 		46189CA8DD6CB10908020ED8 /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53C08946C54B07F8C2634689 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		BA0F3CC034586FE5CB5BB586 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
+		F44E92401CA4204300FD1511 /* PostCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCommentViewController.swift; sourceTree = "<group>"; };
 		F46C89C81C9FB580009A8FFA /* AdobeCreativeSDKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdobeCreativeSDKCore.framework; sourceTree = "<group>"; };
 		F46C89C91C9FB580009A8FFA /* AdobeCreativeSDKImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AdobeCreativeSDKImage.framework; sourceTree = "<group>"; };
 		F46C89CC1C9FB5BA009A8FFA /* AdobeCreativeSDKCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AdobeCreativeSDKCoreResources.bundle; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				F46C89E91CA053E9009A8FFA /* PostData.swift */,
 				F46C89EB1CA059EF009A8FFA /* PostTableViewCell.swift */,
 				F46C89EC1CA059EF009A8FFA /* PostTableViewCell.xib */,
+				F44E92401CA4204300FD1511 /* PostCommentViewController.swift */,
 				F48041F51C983DDA00E17E46 /* LoginViewController.swift */,
 				F48041F71C983E1200E17E46 /* HomeViewController.swift */,
 				F48041F91C983E3E00E17E46 /* ImageSelectViewController.swift */,
@@ -309,6 +312,7 @@
 				F48041F61C983DDA00E17E46 /* LoginViewController.swift in Sources */,
 				F48041E61C983B4600E17E46 /* ViewController.swift in Sources */,
 				F48041E41C983B4600E17E46 /* AppDelegate.swift in Sources */,
+				F44E92411CA4204300FD1511 /* PostCommentViewController.swift in Sources */,
 				F48041FA1C983E3E00E17E46 /* ImageSelectViewController.swift in Sources */,
 				F479E4AC1C9AFD750024A394 /* Const.swift in Sources */,
 				F46C89ED1CA059EF009A8FFA /* PostTableViewCell.swift in Sources */,

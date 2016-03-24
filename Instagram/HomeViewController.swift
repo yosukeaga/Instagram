@@ -26,6 +26,8 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         cell.postData = postArray[indexPath.row]
         
         cell.likeButton.addTarget(self, action:"handleButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
+        cell.commentButton.addTarget(self, action:"handleCommentButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
+        
         
         cell.layoutIfNeeded()
         
@@ -40,6 +42,13 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // セルをタップされたら何もせずに選択状態を解除する
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func handleCommentButton(sender: UIButton, event:UIEvent){
+    
+        let postcomentviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("PostComment")
+        self.presentViewController(postcomentviewcontroller!, animated: true, completion: nil)
+    
     }
     
     func handleButton(sender: UIButton, event:UIEvent) {
