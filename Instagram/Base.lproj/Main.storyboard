@@ -337,8 +337,47 @@
                     <view key="view" contentMode="scaleToFill" id="DRr-n4-zH7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHH-a1-EAb">
+                                <rect key="frame" x="150" y="220" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="sC7-HI-Ytd"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="PostCommentingButton:" destination="AnH-9C-Akv" eventType="touchUpInside" id="TZ3-Nh-sZ4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYV-05-1s6">
+                                <rect key="frame" x="150" y="280" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="qUb-Ty-aVi"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="PostCancelingButton:" destination="AnH-9C-Akv" eventType="touchUpInside" id="tZN-54-HMU"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力して下さい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DHb-wS-5zT">
+                                <rect key="frame" x="30" y="80" width="540" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DHb-wS-5zT" firstAttribute="top" secondItem="DRr-n4-zH7" secondAttribute="topMargin" constant="80" id="6aI-Du-weK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DHb-wS-5zT" secondAttribute="trailing" constant="10" id="7pJ-FS-AH4"/>
+                            <constraint firstItem="mYV-05-1s6" firstAttribute="centerY" secondItem="DRr-n4-zH7" secondAttribute="centerY" id="Pkm-zF-vRc"/>
+                            <constraint firstItem="mYV-05-1s6" firstAttribute="centerX" secondItem="DRr-n4-zH7" secondAttribute="centerX" id="Woi-Ha-8p3"/>
+                            <constraint firstItem="mYV-05-1s6" firstAttribute="top" secondItem="BHH-a1-EAb" secondAttribute="bottom" constant="20" id="cX5-ZR-p1G"/>
+                            <constraint firstItem="DHb-wS-5zT" firstAttribute="leading" secondItem="DRr-n4-zH7" secondAttribute="leadingMargin" constant="10" id="tc0-qH-tlr"/>
+                            <constraint firstItem="BHH-a1-EAb" firstAttribute="centerX" secondItem="DRr-n4-zH7" secondAttribute="centerX" id="vsg-nm-Jcb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="postComentTextField" destination="DHb-wS-5zT" id="NCs-8G-wqH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bVR-Zm-Nup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
