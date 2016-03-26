@@ -72,9 +72,12 @@ class PostTableViewCell: UITableViewCell {
         
             let buttonImage = UIImage(named: "like_exist")
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
-        }else{
+            
+                    }else{
             let buttonImage = UIImage(named: "like_none")
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
+            
+            
         }
         
         

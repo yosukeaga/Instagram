@@ -96,12 +96,15 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         let caption = postData.caption
         let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
         let likes = postData.likes
+        let name1 = postData.name1
+        let comment = postData.comment
         
         // 辞書を作成してFirebaseに保存する
-        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "name1": name1, "comment": comment]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
         postRef.childByAppendingPath(postData.id).setValue(post)
-    }
+        
+        }
     
     
     

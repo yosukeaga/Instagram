@@ -36,13 +36,13 @@ class PostData: NSObject {
     
      if let likes = snapshot.value.objectForKey("likes") as? [String] {
         self.likes = likes
+        
      }
      if let comment = snapshot.value.objectForKey("coment") as? [String] {
         self.comment = comment
      }
      if let name1 = snapshot.value.objectForKey("name1") as? [String] {
-        self.name1 = name1
-     }
+        self.name1 = name1     }
 
     
      for likeId in likes {
