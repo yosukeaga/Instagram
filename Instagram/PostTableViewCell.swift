@@ -39,6 +39,18 @@ class PostTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         
          //postData!等の！の意味が分からない
+        
+        commentLabel.text = ""
+        for var a = 0; a < postData!.comment.count; a++    {
+            if a > 0 {
+                commentLabel.text = commentLabel.text! + "\n"
+            }
+            commentLabel.text! = commentLabel.text! + "\(postData!.name1[a]): \(postData!.comment[a])"
+        }
+        
+        
+        
+        
         postImageView.image = postData!.image
         captionLabel.text = "\(postData!.name!):\(postData!.caption!)"
         
@@ -51,6 +63,10 @@ class PostTableViewCell: UITableViewCell {
         
         let dateString: String = formatter.stringFromDate(postData!.date!)
         dateLabel.text = dateString
+        
+        
+        
+        
         
         if postData!.isLiked{
         

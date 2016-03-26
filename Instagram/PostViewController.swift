@@ -24,10 +24,9 @@ class PostViewController: UIViewController {
         
         let ud = NSUserDefaults.standardUserDefaults()
         let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
-        
         let time = NSDate.timeIntervalSinceReferenceDate()
         
-        let postData = ["caption":textField.text!, "image":imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "name": name, "time": time]
+        let postData = ["caption":textField.text!, "image":imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength), "name": name, "time": time ]
         postRef.childByAutoId().setValue(postData)
         
         SVProgressHUD.showSuccessWithStatus("投稿しました")

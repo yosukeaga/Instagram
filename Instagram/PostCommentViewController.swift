@@ -15,18 +15,37 @@ class PostCommentViewController: UIViewController {
     
     @IBOutlet weak var postComentTextField: UITextField!
     
-    
+    var post: PostData!
     
    
     @IBAction func PostCommentingButton(sender: AnyObject) {
         
-        let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostCommentPATH)
+        let postData = self.post
+        postData.comment.append(postComentTextField.text!)
+        let name = postData.name
+        let imageString = postData.imageString
+        let caption = postData.caption
+        let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
+        let likes = postData.likes
+        let comment = postData.comment
+        var name1 = postData.name1
+        
         let ud = NSUserDefaults.standardUserDefaults()
-        let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
+        let userName = ud.objectForKey(CommonConst.DisplayNameKey) as! String
         
-        let postData = ["comment": postComentTextField.text!, "name": name]
+        name1.append(userName)
         
-        postRef.childByAutoId().setValue(postData)
+        print(name1)
+        print(comment)
+        
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "coment": comment,"name1": name1]
+        let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
+        postRef.childByAppendingPath(postData.id).setValue(post)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+        
+        
         
         SVProgressHUD.showSuccessWithStatus("投稿しました")
         
@@ -45,8 +64,10 @@ class PostCommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    
+    
+    
     }
 
     override func didReceiveMemoryWarning() {

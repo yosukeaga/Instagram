@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
     
     var firebaseRef: Firebase!
     var postArray: [PostData] = []
+    var i = 0
     
      //DataSourceプロトコル
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,9 +47,20 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
     
     func handleCommentButton(sender: UIButton, event:UIEvent){
     
-        let postcomentviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("PostComment")
-        self.presentViewController(postcomentviewcontroller!, animated: true, completion: nil)
-    
+        let touch = event.allTouches()?.first
+        let point = touch!.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(point)
+        i = indexPath!.row
+        
+        
+        
+       let postcommentviewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("PostComment") as! PostCommentViewController
+        
+        postcommentviewcontroller.post = postArray[i]
+        
+        presentViewController(postcommentviewcontroller, animated: true, completion: nil)
+        
+        
     }
     
     func handleButton(sender: UIButton, event:UIEvent) {
@@ -130,7 +142,8 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
             
             self.postArray.removeAtIndex(index)
             self.postArray.insert(postData, atIndex: index)
-            
+           
+            //self.tableView.reloadData()
             let indexPath = NSIndexPath(forRow: index, inSection: 0)
             self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
         })
