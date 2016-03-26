@@ -35,14 +35,12 @@ class PostCommentViewController: UIViewController {
         
         name1.append(userName)
         
-        print(name1)
-        print(comment)
+
         
         let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "coment": comment,"name1": name1]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
         postRef.childByAppendingPath(postData.id).setValue(post)
         
-        dismissViewControllerAnimated(true, completion: nil)
         
         
         
@@ -54,6 +52,9 @@ class PostCommentViewController: UIViewController {
     
     
     @IBAction func PostCancelingButton(sender: AnyObject) {
+        
+        dismissViewControllerAnimated(true, completion: nil)
+
     }
     
     
