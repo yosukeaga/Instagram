@@ -24,36 +24,35 @@ class PostData: NSObject {
     var comment: [String] = []
     
     init(snapshot: FDataSnapshot, myId: String) {
-     id = snapshot.key
-    
-     imageString = snapshot.value.objectForKey("image") as? String
-     image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
-    
-     name = snapshot.value.objectForKey("name") as? String
-     caption = snapshot.value.objectForKey("caption") as? String
+        id = snapshot.key
         
-    
-    
-     if let likes = snapshot.value.objectForKey("likes") as? [String] {
-        self.likes = likes
+        imageString = snapshot.value.objectForKey("image") as? String
+        image = UIImage(data: NSData(base64EncodedString: imageString!, options: .IgnoreUnknownCharacters)!)
         
-     }
-     if let comment = snapshot.value.objectForKey("coment") as? [String] {
-        self.comment = comment
-     }
-     if let name1 = snapshot.value.objectForKey("name1") as? [String] {
-        self.name1 = name1     }
-
-    
-     for likeId in likes {
-         if likeId == myId {
-               isLiked = true
-                     break
+        name = snapshot.value.objectForKey("name") as? String
+        caption = snapshot.value.objectForKey("caption") as? String
+        
+        
+        
+        if let likes = snapshot.value.objectForKey("likes") as? [String] {
+            self.likes = likes
         }
-      }
-    
-    self.date = NSDate(timeIntervalSinceReferenceDate: snapshot.value.objectForKey("time") as! NSTimeInterval)
+        if let comment = snapshot.value.objectForKey("comment") as? [String] {
+            self.comment = comment
+        }
+        if let name1 = snapshot.value.objectForKey("name1") as? [String] {
+            self.name1 = name1     }
+        
+        
+        for likeId in likes {
+            if likeId == myId {
+                isLiked = true
+                break
+            }
+        }
+        
+        self.date = NSDate(timeIntervalSinceReferenceDate: snapshot.value.objectForKey("time") as! NSTimeInterval)
     }
-
-
+    
+    
 }

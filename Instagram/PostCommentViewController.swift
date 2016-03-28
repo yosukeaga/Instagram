@@ -37,7 +37,7 @@ class PostCommentViewController: UIViewController {
         
 
         
-        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "coment": comment,"name1": name1]
+        let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "comment": comment,"name1": name1]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
         postRef.childByAppendingPath(postData.id).setValue(post)
         

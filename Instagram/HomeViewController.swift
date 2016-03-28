@@ -25,8 +25,9 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell" , forIndexPath: indexPath) as! PostTableViewCell
         cell.postData = postArray[indexPath.row]
+        print(">>>> \(cell.postData?.comment)")
         
-        cell.likeButton.addTarget(self, action:"handleButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
+        cell.likeButton.addTarget(self, action:"handleButton1:event:", forControlEvents:  UIControlEvents.TouchUpInside)
         cell.commentButton.addTarget(self, action:"handleCommentButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
         
         
@@ -63,7 +64,7 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         
     }
     
-    func handleButton(sender: UIButton, event:UIEvent) {
+    func handleButton1(sender: UIButton, event:UIEvent) {
         
         // タップされたセルのインデックスを求める
         let touch = event.allTouches()?.first
@@ -72,6 +73,8 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        
+        print(postData.comment)
         
         // Firebaseに保存するデータの準備
         let uid = firebaseRef.authData.uid
@@ -102,6 +105,7 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         // 辞書を作成してFirebaseに保存する
         let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes, "name1": name1, "comment": comment]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
+        
         postRef.childByAppendingPath(postData.id).setValue(post)
         
         }
@@ -132,8 +136,9 @@ class HomeViewController: UIViewController, UITableViewDataSource , UITableViewD
         firebaseRef.childByAppendingPath(CommonConst.PostPATH).observeEventType(FEventType.ChildChanged, withBlock: { snapshot in
          
             let postData = PostData(snapshot: snapshot, myId: self.firebaseRef.authData.uid)
-            
+            print("\(self.firebaseRef.authData.uid)です")
             var index: Int = 0
+            
             for post in self.postArray {
             
                 if post.id == postData.id{
